@@ -1,0 +1,11 @@
+build_image: registry.cn-zhangjiakou.aliyuncs.com/jcrose-devops/ci-golang:1.23
+
+builds:
+  - cmds: |-
+      go build -o main main.go
+      tar -czf main.tar.gz main manifest/config
+    runtime_image_src_artifacts: main.tar.gz
+    runtime_image_dest: /app/
+    runtime_image_env: allenv
+    service_name: s3-demo #需要满足k8s的namespace名称要求
+
