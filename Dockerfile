@@ -4,6 +4,6 @@ ARG TARGET
 ADD $SRC $TARGET
 WORKDIR /app/
 ADD main /app/main
-
+ENTRYPOINT /app/main
 
 
